@@ -1,4 +1,5 @@
 from typing import List, Any
+import matplotlib.pyplot as plt
 
 
 def get_numbers() -> list:
@@ -24,13 +25,16 @@ def return_sorted_list(numbers: list) -> None:
     numbers.sort()
 
 
+def create_graph(numbers: list) -> None:
+    x = [i + 1 for i in range(len(numbers))]
+    plt.scatter(x, numbers)
+    plt.show()
+
+
 def exe_flow() -> None:
     numbers = get_numbers()
     print(f"Your numbers average: {get_average(numbers)}\n"
           f"All the positive numbers: {get_positive_numbers(numbers)}")
+    create_graph(numbers)
     return_sorted_list(numbers)
     print(f"Sorted numbers: {numbers}")
-
-
-if __name__ == '__main__':
-    exe_flow()

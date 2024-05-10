@@ -11,6 +11,9 @@ namespace oop
     {
         static void Main(string[] args)
         {
+            NumericalExpression n = new NumericalExpression(12345);
+            Console.WriteLine(n.ToString());
+            int num = int.Parse(n.ToString());
         }
     }
 }

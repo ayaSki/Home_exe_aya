@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,11 @@ namespace oop
     {
         private Node Node {  get; set; }
 
+
+        public LinkedList(int num)
+        {
+            this.Node = new Node(num);  
+        }
 
         public void Append(int num)
         {
@@ -27,6 +33,7 @@ namespace oop
         {
             Node newNode = new Node(num);
             newNode.Next = this.Node;
+            this.Node = newNode;
         }
 
 
@@ -56,7 +63,8 @@ namespace oop
             Node temp = this.Node;
             while (temp != null)
             {
-                list.Append(temp.Value);
+                list = list.Append(temp.Value);
+                temp = temp.Next;
             }
             return list;
         }
@@ -65,11 +73,11 @@ namespace oop
         public bool IsCircular()
         {
             Node temp = this.Node;
-            while(temp.Next != null)
+            while(temp.Next != null && temp.Next != this.Node)
             {
                 temp = temp.Next;
             }
-            return temp == this.Node;
+            return temp.Next == this.Node;
         }
 
 
@@ -83,38 +91,84 @@ namespace oop
 
         public void Sort()
         {
-            if(this.Node == null)
-            {
+            bool swapped;
+            Node current;
+            Node beforeCurrent;
+            Node beforeCurrentSign;
+            if (this.Node == null)
                 return;
-            }
-            Node temp = this.Node.Next;
-            Node beforeCurrent = this.Node;
 
-
-            if(temp.Value < beforeCurrent.Value)
+            do
             {
-                beforeCurrent.Next = temp.Next;
-                temp.Next = beforeCurrent;
-            }
+                swapped = false;
+                current = this.Node.Next;
+                beforeCurrent = this.Node;
+                beforeCurrentSign = this.Node;
 
-            while(temp.Next != null )
-            {
-                while(temp.Next != null)
+                if (beforeCurrent.Value > current.Value)
                 {
-                    if(temp.Value > temp.Next.Value)
-                    {
-                        Swap(temp, temp.Next, beforeCurrent);
-                    }
-                    temp = temp.Next;
-                    beforeCurrent = beforeCurrent.Next;
+                    beforeCurrent.Next = current.Next;
+                    current.Next = beforeCurrent;
+                    current = this.Node.Next;
+                    beforeCurrent = this.Node;
+                    beforeCurrentSign = this.Node;
                 }
-            }
+
+                while (current.Next != null)
+                {
+                    if (current.Value > current.Next.Value)
+                    {
+                        Swap(current, current.Next, beforeCurrent);
+                        swapped = true;
+                        beforeCurrent = beforeCurrentSign;
+                        current = beforeCurrentSign.Next;
+                    }
+                    current = current.Next;
+                    beforeCurrent = beforeCurrent.Next;
+                    beforeCurrentSign = beforeCurrentSign.Next;
+                }
+            } while (swapped);
         }
 
 
         public Node GetMaxNode()
         {
+            Node temp = this.Node;
+            Node max = this.Node;
+            while(temp != null)
+            {
+                if(temp.Value > max.Value)
+                {
+                    max = temp;
+                }
+                temp = temp.Next;
+            }
+            return max;
+        }
 
+        public Node GetMinNode()
+        {
+            Node temp = this.Node;
+            Node min = this.Node;
+            while (temp != null)
+            {
+                if (temp.Value < min.Value)
+                {
+                    min = temp;
+                }
+                temp = temp.Next;
+            }
+            return min;
+        }
+
+        public void print()
+        {
+            Node temp = this.Node;
+            while(temp != null)
+            {
+                Console.WriteLine(temp.Value);
+                temp = temp.Next;
+            }
         }
     }
 }

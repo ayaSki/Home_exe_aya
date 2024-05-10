@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|solutionrelative:oop\\linkedlist .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|c:\\home_exe_aya\\oop\\oop\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|solutionrelative:oop\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|C:\\Home_exe_aya\\oop\\oop\\Node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|solutionrelative:oop\\Node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|c:\\home_exe_aya\\oop\\oop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|solutionrelative:oop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|C:\\Home_exe_aya\\oop\\oop\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E759D128-052D-461D-97DA-1C7FAD449823}|oop\\oop.csproj|solutionrelative:oop\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "oop\\LinkedList .cs",
               "ToolTip": "C:\\Home_exe_aya\\oop\\oop\\LinkedList .cs",
               "RelativeToolTip": "oop\\LinkedList .cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAwwE0AAAAAAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAHQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-10T13:27:09.078Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "oop\\Node.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T13:17:41.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T13:17:41.553Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "oop\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T13:13:34.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T13:13:34.332Z"
             }
           ]
         }

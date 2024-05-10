@@ -73,7 +73,46 @@ namespace oop
         }
 
 
-        public bool Sort()
+        public void Swap(Node first, Node second, Node beforeFirst)
+        {
+            beforeFirst.Next = second;
+            first.Next = second.Next;
+            second.Next = first;
+        }
+
+
+        public void Sort()
+        {
+            if(this.Node == null)
+            {
+                return;
+            }
+            Node temp = this.Node.Next;
+            Node beforeCurrent = this.Node;
+
+
+            if(temp.Value < beforeCurrent.Value)
+            {
+                beforeCurrent.Next = temp.Next;
+                temp.Next = beforeCurrent;
+            }
+
+            while(temp.Next != null )
+            {
+                while(temp.Next != null)
+                {
+                    if(temp.Value > temp.Next.Value)
+                    {
+                        Swap(temp, temp.Next, beforeCurrent);
+                    }
+                    temp = temp.Next;
+                    beforeCurrent = beforeCurrent.Next;
+                }
+            }
+        }
+
+
+        public Node GetMaxNode()
         {
 
         }

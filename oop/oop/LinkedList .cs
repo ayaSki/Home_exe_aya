@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,23 +11,32 @@ namespace oop
     public class LinkedList
     {
         private Node Node {  get; set; }
+        private Node Max {  get; set; }
+        private Node Min { get; set; }
+        private Node LastNode { get; set; }
 
 
         public LinkedList(int num)
         {
             this.Node = new Node(num);  
+            LastNode = this.Node;
+            Max = this.Node;
+            Min = this.Node;
         }
 
         public void Append(int num)
         {
             Node newNode = new Node(num);
-
-            Node temp = this.Node;
-            while (temp.Next != null)
+            LastNode.Next = newNode;
+            LastNode = LastNode.Next;
+            if(newNode.Value > Max.Value)
             {
-                temp = temp.Next;
+                Max = newNode;
             }
-            temp.Next = newNode;
+            if(newNode.Value < Min.Value)
+            {
+                Min = newNode;
+            }
         }
 
         public void Prepend(int num)
@@ -81,7 +91,7 @@ namespace oop
         }
 
 
-        public void Swap(Node first, Node second, Node beforeFirst)
+        private void Swap(Node first, Node second, Node beforeFirst)
         {
             beforeFirst.Next = second;
             first.Next = second.Next;
@@ -133,32 +143,12 @@ namespace oop
 
         public Node GetMaxNode()
         {
-            Node temp = this.Node;
-            Node max = this.Node;
-            while(temp != null)
-            {
-                if(temp.Value > max.Value)
-                {
-                    max = temp;
-                }
-                temp = temp.Next;
-            }
-            return max;
+            return Max;
         }
 
         public Node GetMinNode()
         {
-            Node temp = this.Node;
-            Node min = this.Node;
-            while (temp != null)
-            {
-                if (temp.Value < min.Value)
-                {
-                    min = temp;
-                }
-                temp = temp.Next;
-            }
-            return min;
+            return Min;
         }
 
         public void print()

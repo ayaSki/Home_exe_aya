@@ -151,23 +151,7 @@ namespace oop
             return $"{LenThree(number / 1000000000)} {multiplier[3]} {LenSevenToNine(number % 1000000000)}";
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public long SumLetters()
+        static long SumLetters(long number)
         {
             long someLetters = 0;
             for (long i = 1; i <= number; i++)
@@ -177,12 +161,11 @@ namespace oop
             return someLetters;
         }
 
-
         /*polymorphism
          * becuase I actually used the same function but "override" the previous 
          * one because I added another variable that I need to receive
         */
-        public long SumLetters(NumericalExpression n)
+        static long SumLetters(NumericalExpression n)
         {
             long someLetters = 0;
             for (long i = 1; i <= n.GetValue(); i++)

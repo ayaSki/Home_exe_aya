@@ -10,10 +10,7 @@ namespace oop
     internal class Program
     {
         static void Main(string[] args)
-        {
-            NumericalExpression n = new NumericalExpression(6678);
-            Console.WriteLine($"{n.ToString()}");
-            int num = int.Parse(Console.ReadLine());
+        { 
         }
     }
 }

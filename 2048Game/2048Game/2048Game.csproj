@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FAF36E8-E074-43FF-B789-7DF411C8C706}</ProjectGuid>
+    <ProjectGuid>{963B6A32-65BA-4B85-A767-1432AFFEF83C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>_2048Game</RootNamespace>
     <AssemblyName>2048Game</AssemblyName>
@@ -53,6 +53,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

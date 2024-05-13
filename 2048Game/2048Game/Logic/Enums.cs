@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2048Game.Logic
 {
-    internal class Enums
+    public class Enums
     {
         public enum Direction
         {

@@ -32,13 +32,48 @@ namespace _2048Game.Logic
 
         public int Move(Enums.Direction direction)
         {
+            int[] xy = new int[2];
             switch (direction)
             {
                 case Enums.Direction.Up:
+                    xy[0] = 1;
+                    xy[1] = 0;
+                    break;
+                case Enums.Direction.Down:
+                    xy[0] = -1;
+                    xy[1] = 0;
+                    break;
+                case Enums.Direction.Left:
+                    xy[0] = 0;
+                    xy[1] = -1;
+                    break;
+                case Enums.Direction.Right:
+                    xy[0] = 0;
+                    xy[1] = 1;
+                    break;
+                defult:
                     break;
             }
-
+            return ChangeCellsByXY(xy[0], xy[1]);
         }
+        private int ChangeCellsByXY(int x, int y)
+        {
+            int iValue = 0;
+            int jValue = 0;
+            if(x == 0)
+            {
+                iValue = 0;
+                jValue = 1;
+            }
+            for (int i = 0; i < constants.BoardSize; i++)
+            {
+                for(int j = 0; j < constants.BoardSize; j++)
+                {
+                    
+                }
+            }
+        }
+
 
         private int[] RandomCell()
         {
@@ -57,7 +92,7 @@ namespace _2048Game.Logic
         {
             Random rnd = new Random();
             int numberToAdd = 0;
-            while(numberToAdd != 2 || numberToAdd != 4)
+            while(numberToAdd != 2 && numberToAdd != 4)
             {
                 numberToAdd = rnd.Next(2, 4);
             }

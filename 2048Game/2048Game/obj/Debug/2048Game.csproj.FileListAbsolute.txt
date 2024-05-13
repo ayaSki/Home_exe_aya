@@ -1,0 +1,7 @@
+C:\Home_exe_aya\2048Game\2048Game\bin\Debug\2048Game.exe.config
+C:\Home_exe_aya\2048Game\2048Game\bin\Debug\2048Game.exe
+C:\Home_exe_aya\2048Game\2048Game\bin\Debug\2048Game.pdb
+C:\Home_exe_aya\2048Game\2048Game\obj\Debug\2048Game.csproj.AssemblyReference.cache
+C:\Home_exe_aya\2048Game\2048Game\obj\Debug\2048Game.csproj.CoreCompileInputs.cache
+C:\Home_exe_aya\2048Game\2048Game\obj\Debug\2048Game.exe
+C:\Home_exe_aya\2048Game\2048Game\obj\Debug\2048Game.pdb

@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "C:\\Home_exe_aya\\2048Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|C:\\Home_exe_aya\\2048Game\\2048game\\user\\consolegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|C:\\Home_exe_aya\\2048Game\\2048game\\logic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\logic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|C:\\Home_exe_aya\\2048Game\\2048game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|c:\\home_exe_aya\\2048game\\2048game\\logic\\gameflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\logic\\gameflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|c:\\home_exe_aya\\2048game\\2048game\\user\\consolegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\user\\consolegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,20 +23,12 @@
       "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\logic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|c:\\home_exe_aya\\2048game\\2048game\\logic\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|C:\\Home_exe_aya\\2048Game\\2048game\\logic\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\logic\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|c:\\home_exe_aya\\2048game\\2048game\\logic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\logic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|C:\\Home_exe_aya\\2048Game\\2048game\\logic\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\logic\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|C:\\Home_exe_aya\\2048Game\\2048game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{963B6A32-65BA-4B85-A767-1432AFFEF83C}|2048Game\\2048Game.csproj|solutionrelative:2048game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,68 +38,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "constants.cs",
-              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\constants.cs",
-              "RelativeDocumentMoniker": "2048Game\\Logic\\constants.cs",
-              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\constants.cs",
-              "RelativeToolTip": "2048Game\\Logic\\constants.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Title": "GameFlow.cs",
+              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\GameFlow.cs",
+              "RelativeDocumentMoniker": "2048Game\\Logic\\GameFlow.cs",
+              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\GameFlow.cs",
+              "RelativeToolTip": "2048Game\\Logic\\GameFlow.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAA0AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T20:16:22.541Z",
+              "WhenOpened": "2024-05-15T21:11:10.738Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Enums.cs",
-              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Enums.cs",
-              "RelativeDocumentMoniker": "2048Game\\Logic\\Enums.cs",
-              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Enums.cs",
-              "RelativeToolTip": "2048Game\\Logic\\Enums.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T20:36:39.272Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Game.cs",
               "RelativeDocumentMoniker": "2048Game\\Logic\\Game.cs",
               "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Game.cs",
               "RelativeToolTip": "2048Game\\Logic\\Game.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAACUAAAA1AAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAAAkAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-13T20:06:01.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ConsoleGame.cs",
               "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\User\\ConsoleGame.cs",
               "RelativeDocumentMoniker": "2048Game\\User\\ConsoleGame.cs",
               "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\User\\ConsoleGame.cs",
               "RelativeToolTip": "2048Game\\User\\ConsoleGame.cs",
-              "ViewState": "AQIAAAwAAAAAAMBmPqwwwBsAAAAMAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABQAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-13T20:03:00.641Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Program.cs",
+              "RelativeDocumentMoniker": "2048Game\\Program.cs",
+              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Program.cs",
+              "RelativeToolTip": "2048Game\\Program.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAowA8AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T19:50:45.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Board.cs",
               "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Board.cs",
               "RelativeDocumentMoniker": "2048Game\\Logic\\Board.cs",
               "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Board.cs",
               "RelativeToolTip": "2048Game\\Logic\\Board.cs",
-              "ViewState": "AQIAALIAAAAAAAAAAAAAAHsAAAAgAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADYAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-13T19:57:29.761Z",
               "EditorCaption": ""
@@ -103,14 +108,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Program.cs",
-              "RelativeDocumentMoniker": "2048Game\\Program.cs",
-              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Program.cs",
-              "RelativeToolTip": "2048Game\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAowA4AAAAaAAAA",
+              "Title": "constants.cs",
+              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\constants.cs",
+              "RelativeDocumentMoniker": "2048Game\\Logic\\constants.cs",
+              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\constants.cs",
+              "RelativeToolTip": "2048Game\\Logic\\constants.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T19:50:45.261Z"
+              "WhenOpened": "2024-05-15T20:16:22.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Enums.cs",
+              "RelativeDocumentMoniker": "2048Game\\Logic\\Enums.cs",
+              "ToolTip": "C:\\Home_exe_aya\\2048Game\\2048Game\\Logic\\Enums.cs",
+              "RelativeToolTip": "2048Game\\Logic\\Enums.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAqwBAAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T20:36:39.272Z",
+              "EditorCaption": ""
             }
           ]
         }

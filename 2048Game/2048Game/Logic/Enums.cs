@@ -13,7 +13,8 @@ namespace _2048Game.Logic
             Left,
             Right,
             Up,
-            Down
+            Down,
+            error
         }
 
         public enum GameStatus

@@ -49,10 +49,10 @@ namespace _2048Game.Logic
                     addPoints = MoveByQueue(-1);
                     break;
                 case Enums.Direction.Left:
-                    addPoints = MoveByRow(-1);
+                    addPoints = MoveByRow(1);
                     break;
                 default:
-                    addPoints = MoveByRow(1);
+                    addPoints = MoveByRow(-1);
                     break;
             }
             AddCells(1);
@@ -64,6 +64,7 @@ namespace _2048Game.Logic
             int addPoints = 0;
             for (int i = 0; i < constants.BoardSize; i++)
             {
+                ArrengeRow(direction, i);
                 if (Data[i, 1] == Data[i, 2])
                 {
                     addPoints = ConnectIdenticall(new int[] { i, 1 }, new int[] { i, 2 }, direction);
@@ -87,21 +88,23 @@ namespace _2048Game.Logic
         private void ArrengeRow(int direction, int rowNumber)
         {
             int[] rowNumbers = new int[constants.BoardSize];
-            int startPoint = 0;
             int location = 0;
-            if(direction == -1)
-            {
-                startPoint = 1;
-            }
-            for(int i = startPoint; i < constants.BoardSize; i++)
+            int rowLoc = 0;
+            for(int i = 0; i < constants.BoardSize; i++)
             {
                 if (Data[rowNumber, location] != 0)
                 {
-                    rowNumbers[i] = Data[rowNumber, location];
+                    rowNumbers[rowLoc] = Data[rowNumber, location];
+                    Data[rowNumber, location] = 0;
+                    rowLoc++;
                 }
                 location++;
             }
-            for(int i = 0; i < constants.BoardSize; i++)
+            if (direction == -1)
+            {
+                rowNumbers = Reverse(rowNumbers);
+            }
+            for (int i = 0; i < constants.BoardSize; i++)
             {
                 Data[rowNumber, i] = rowNumbers[i];
             }
@@ -130,6 +133,7 @@ namespace _2048Game.Logic
             int addPoints = 0;
             for (int i = 0; i < constants.BoardSize; i++)
             {
+                ArrengeQueue(direction, i);
                 if (Data[1, i] == Data[2, i])
                 {
                     addPoints = ConnectIdenticall(new int[] { 1, i }, new int[] { 2, i }, direction);
@@ -153,19 +157,21 @@ namespace _2048Game.Logic
         private void ArrengeQueue(int direction, int queueNumber)
         {
             int[] queueNumbers = new int[constants.BoardSize];
-            int startPoint = 0;
+            int queueLoc = 0;
             int location = 0;
-            if (direction == -1)
-            {
-                startPoint = 1;
-            }
-            for (int i = startPoint; i < constants.BoardSize; i++)
+            for (int i = 0; i < constants.BoardSize; i++)
             {
                 if (Data[location, queueNumber] != 0)
                 {
-                    queueNumbers[i] = Data[location, queueNumber];
+                    queueNumbers[queueLoc] = Data[location, queueNumber];
+                    Data[location, queueNumber] = 0;
+                    queueLoc++;
                 }
                 location++;
+            }
+            if (direction == -1)
+            {
+                queueNumbers = Reverse(queueNumbers);
             }
             for (int i = 0; i < constants.BoardSize; i++)
             {
@@ -195,6 +201,20 @@ namespace _2048Game.Logic
                 numberToAdd = rnd.Next(2, 4);
             }
             return numberToAdd;
+        }
+
+        private int[] Reverse(int[] numbers)
+        {
+            while (numbers[0] != 0)
+            {
+                int tmp = numbers[0];
+                for (int i = 1; i < numbers.Length; i++)
+                {
+                    numbers[i - 1] = numbers[i];
+                }
+                numbers[numbers.Length - 1] = tmp;
+            }
+            return numbers;
         }
     }
 }

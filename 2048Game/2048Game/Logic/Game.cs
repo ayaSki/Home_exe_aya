@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2048Game.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace _2048Game.Logic
 
         public void Move(Enums.Direction direction)
         {
-            if(Status == Enums.GameStatus.Lose || Status == Enums.GameStatus.Win)
+            if(Status == Enums.GameStatus.Lose || Status == Enums.GameStatus.Win || direction == Enums.Direction.error)
             {
                 return;
             }

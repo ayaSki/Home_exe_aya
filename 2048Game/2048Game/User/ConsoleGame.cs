@@ -10,6 +10,7 @@ namespace _2048Game.User
     public class ConsoleGame
     {
         public Board Board {  get; set; }
+
         public void ShowBoard()
         {
             for(int i = 0; i < constants.BoardSize; i++)
@@ -20,6 +21,11 @@ namespace _2048Game.User
                 }
                 Console.Write("\n");
             }
+        }
+
+        public string NumberToStr(int number)
+        {
+            
         }
     }
 }

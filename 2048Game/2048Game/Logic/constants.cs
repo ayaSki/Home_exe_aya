@@ -10,5 +10,6 @@ namespace _2048Game.Logic
     {
         public const int BoardSize = 4;
         public const int StartPos = 2;
+        public const int NumberOfCells = 16;
     }
 }

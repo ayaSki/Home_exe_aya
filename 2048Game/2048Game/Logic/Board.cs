@@ -18,17 +18,23 @@ namespace _2048Game.Logic
             NumberOfFullSpots = 0;
         }
 
-        public void StartGame()
+        public void AddCells(int numOfCellsToAdd)
         {
-            while(NumberOfFullSpots != 2)
+            int add = 0;
+            while (add != numOfCellsToAdd)
             {
                 int[] index = RandomCell();
-                if(EmptyCell(index))
+                if (EmptyCell(index))
                 {
                     Data[index[0], index[1]] = RandomAddNumber();
+                    add++;
                     NumberOfFullSpots++;
                 }
             }
+        }
+        public void StartGame()
+        {
+            AddCells(2);
         }
 
         public int Move(Enums.Direction direction)
@@ -49,11 +55,9 @@ namespace _2048Game.Logic
                     addPoints = MoveByRow(1);
                     break;
             }
+            AddCells(1);
             return addPoints;
         }
-
-
-
 
         private int MoveByRow(int direction)
         {
@@ -110,15 +114,16 @@ namespace _2048Game.Logic
                 Data[firstLoc[0], firstLoc[1]] =
                     Data[firstLoc[0], firstLoc[1]] + Data[secondLoc[0], secondLoc[1]];
                 Data[secondLoc[0], secondLoc[1]] = 0;
+                NumberOfFullSpots--;
                 return Data[firstLoc[0], firstLoc[1]];
             }
             //down
             Data[secondLoc[0], secondLoc[1]] =
                     Data[firstLoc[0], firstLoc[1]] + Data[secondLoc[0], secondLoc[1]];
             Data[firstLoc[0], firstLoc[1]] = 0;
+            NumberOfFullSpots--;
             return Data[secondLoc[0], secondLoc[1]];
         }
-
 
         private int MoveByQueue(int direction)
         {
@@ -168,8 +173,6 @@ namespace _2048Game.Logic
             }
         }
 
-
-
         private int[] RandomCell()
         {
             Random row = new Random();
@@ -193,7 +196,5 @@ namespace _2048Game.Logic
             }
             return numberToAdd;
         }
-
-
     }
 }

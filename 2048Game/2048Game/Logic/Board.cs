@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,47 +33,141 @@ namespace _2048Game.Logic
 
         public int Move(Enums.Direction direction)
         {
-            int[] xy = new int[2];
+            int addPoints = 0;
             switch (direction)
             {
                 case Enums.Direction.Up:
-                    xy[0] = 1;
-                    xy[1] = 0;
+                    addPoints = MoveByQueue(1);
                     break;
                 case Enums.Direction.Down:
-                    xy[0] = -1;
-                    xy[1] = 0;
+                    addPoints = MoveByQueue(-1);
                     break;
                 case Enums.Direction.Left:
-                    xy[0] = 0;
-                    xy[1] = -1;
+                    addPoints = MoveByRow(-1);
                     break;
-                case Enums.Direction.Right:
-                    xy[0] = 0;
-                    xy[1] = 1;
-                    break;
-                defult:
+                default:
+                    addPoints = MoveByRow(1);
                     break;
             }
-            return ChangeCellsByXY(xy[0], xy[1]);
+            return addPoints;
         }
-        private int ChangeCellsByXY(int x, int y)
+
+
+
+
+        private int MoveByRow(int direction)
         {
-            int iValue = 0;
-            int jValue = 0;
-            if(x == 0)
+            int addPoints = 0;
+            for (int i = 0; i < constants.BoardSize; i++)
             {
-                iValue = 0;
-                jValue = 1;
+                if (Data[i, 1] == Data[i, 2])
+                {
+                    addPoints = ConnectIdenticall(new int[] { i, 1 }, new int[] { i, 2 }, direction);
+                }
+                else
+                {
+                    if (Data[i, 0] == Data[i, 1])
+                    {
+                        addPoints = ConnectIdenticall(new int[] { i, 0 }, new int[] { i, 1 }, direction);
+                    }
+                    if (Data[i, 2] == Data[i, 3])
+                    {
+                        addPoints =ConnectIdenticall(new int[] { i, 2 }, new int[] { i, 3 }, direction);
+                    }
+                }
+                ArrengeRow(direction, i);
+            }
+            return addPoints;
+        } 
+
+        private void ArrengeRow(int direction, int rowNumber)
+        {
+            int[] rowNumbers = new int[constants.BoardSize];
+            int startPoint = 0;
+            int location = 0;
+            if(direction == -1)
+            {
+                startPoint = 1;
+            }
+            for(int i = startPoint; i < constants.BoardSize; i++)
+            {
+                if (Data[rowNumber, location] != 0)
+                {
+                    rowNumbers[i] = Data[rowNumber, location];
+                }
+                location++;
+            }
+            for(int i = 0; i < constants.BoardSize; i++)
+            {
+                Data[rowNumber, i] = rowNumbers[i];
+            }
+        }
+
+        private int ConnectIdenticall(int[] firstLoc, int[] secondLoc, int direction)
+        {
+            if (direction == 1)//up
+            {
+                Data[firstLoc[0], firstLoc[1]] =
+                    Data[firstLoc[0], firstLoc[1]] + Data[secondLoc[0], secondLoc[1]];
+                Data[secondLoc[0], secondLoc[1]] = 0;
+                return Data[firstLoc[0], firstLoc[1]];
+            }
+            //down
+            Data[secondLoc[0], secondLoc[1]] =
+                    Data[firstLoc[0], firstLoc[1]] + Data[secondLoc[0], secondLoc[1]];
+            Data[firstLoc[0], firstLoc[1]] = 0;
+            return Data[secondLoc[0], secondLoc[1]];
+        }
+
+
+        private int MoveByQueue(int direction)
+        {
+            int addPoints = 0;
+            for (int i = 0; i < constants.BoardSize; i++)
+            {
+                if (Data[1, i] == Data[2, i])
+                {
+                    addPoints = ConnectIdenticall(new int[] { 1, i }, new int[] { 2, i }, direction);
+                }
+                else
+                {
+                    if (Data[0, i] == Data[1, i])
+                    {
+                        addPoints = ConnectIdenticall(new int[] { 0, i }, new int[] { 1, i }, direction);
+                    }
+                    if (Data[2, i] == Data[3, i])
+                    {
+                        addPoints = ConnectIdenticall(new int[] { 2, i }, new int[] { 3, i }, direction);
+                    }
+                }
+                ArrengeQueue(direction, i);
+            }
+            return addPoints;
+        }
+
+        private void ArrengeQueue(int direction, int queueNumber)
+        {
+            int[] queueNumbers = new int[constants.BoardSize];
+            int startPoint = 0;
+            int location = 0;
+            if (direction == -1)
+            {
+                startPoint = 1;
+            }
+            for (int i = startPoint; i < constants.BoardSize; i++)
+            {
+                if (Data[location, queueNumber] != 0)
+                {
+                    queueNumbers[i] = Data[location, queueNumber];
+                }
+                location++;
             }
             for (int i = 0; i < constants.BoardSize; i++)
             {
-                for(int j = 0; j < constants.BoardSize; j++)
-                {
-                    
-                }
+                Data[i, queueNumber] = queueNumbers[i];
             }
         }
+
 
 
         private int[] RandomCell()

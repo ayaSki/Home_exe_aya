@@ -227,7 +227,7 @@ namespace _2048Game.Logic
         {
             Random row = new Random();
             Random queue = new Random();
-            int[] index = { row.Next(1, constants.BoardSize), queue.Next(1, constants.BoardSize) };
+            int[] index = { row.Next(0, constants.BoardSize), queue.Next(0, constants.BoardSize) };
             return index;
         }
 
@@ -242,7 +242,7 @@ namespace _2048Game.Logic
             int numberToAdd = 0;
             while(numberToAdd != 2 && numberToAdd != 4)
             {
-                numberToAdd = rnd.Next(2, 4);
+                numberToAdd = rnd.Next(2, 5);
             }
             return numberToAdd;
         }

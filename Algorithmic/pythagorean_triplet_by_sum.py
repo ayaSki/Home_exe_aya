@@ -18,7 +18,7 @@ def pythagorean_triplet_by_sum(sum: int) -> None:
         else:
             options = get_pythagorean_triplet_by_odd(first_pythagorean_num)
         if first_pythagorean_num + options[0] + options[1] == sum:
-            print(first_pythagorean_num, options[0], options[1])
+            print(f"{first_pythagorean_num} < {options[0]} < {options[1]}")
             return
         first_pythagorean_num += 1
     print("There is no such a pythagorean triplet")

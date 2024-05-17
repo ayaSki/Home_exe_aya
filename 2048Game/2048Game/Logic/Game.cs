@@ -22,11 +22,20 @@ namespace _2048Game.Logic
 
         public void Move(Enums.Direction direction)
         {
-            if(Status == Enums.GameStatus.Lose || Status == Enums.GameStatus.Win || direction == Enums.Direction.error)
+            if(Status == Enums.GameStatus.Lose || Status == Enums.GameStatus.Win
+                || direction == Enums.Direction.error )
             {
                 return;
             }
             Points += Board.Move(direction);
+            if (FullBoard())
+            {
+                Status = Enums.GameStatus.Lose;
+            }
+            if(Contains2048())
+            {
+                Status = Enums.GameStatus.Win;
+            }
         }
 
         public bool FullBoard()
@@ -36,7 +45,7 @@ namespace _2048Game.Logic
 
         public bool Contains2048()
         {
-            return Board.ToString().Contains("2048");
+            return Board.Contains2048;
         }
     }
 }

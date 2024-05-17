@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace _2048Game.User
 {
-    public class ConsoleGame
+    public class ConsoleGame : Logic.logicalFunctions
     {
+        public void Print(string txt)
+        {
+            Console.WriteLine(txt);
+        }
         public void ShowBoard(Board board)
         {
             Console.WriteLine(constants.Row);
@@ -18,7 +22,7 @@ namespace _2048Game.User
                 Console.Write("|");
                 for (int j = 0; j < constants.BoardSize; j++)
                 {
-                    Console.Write(NumberToStr(board.Data[i, j]) + "|");
+                    Console.Write($"{NumberToStr(board.Data[i, j])}|");
                 }
                 Console.Write("\n");
                 Console.WriteLine(constants.Row);
@@ -26,62 +30,35 @@ namespace _2048Game.User
             }
         }
 
-        public Enums.Direction GetDirection()
+        public Enums.Direction GetConsoleKey()
         {
             var key = Console.ReadKey(true).Key;
-            if(key == ConsoleKey.RightArrow)
+            do
             {
-                return Enums.Direction.Right;
-            }
-            if (key == ConsoleKey.LeftArrow)
-            {
-                return Enums.Direction.Left;
-            }
-            if (key == ConsoleKey.DownArrow)
-            {
-                return Enums.Direction.Down;
-            }
-            if (key == ConsoleKey.UpArrow)
-            {
-                return Enums.Direction.Up;
-            }
+                if (key == ConsoleKey.RightArrow)
+                {
+                    return Enums.Direction.Right;
+                }
+                if (key == ConsoleKey.LeftArrow)
+                {
+                    return Enums.Direction.Left;
+                }
+                if (key == ConsoleKey.DownArrow)
+                {
+                    return Enums.Direction.Down;
+                }
+                if (key == ConsoleKey.UpArrow)
+                {
+                    return Enums.Direction.Up;
+                }
+                if (key == ConsoleKey.Enter)
+                {
+                    return Enums.Direction.Enter;
+                }
+            } while (key != ConsoleKey.Enter || key != ConsoleKey.UpArrow ||
+            key != ConsoleKey.DownArrow || key != ConsoleKey.LeftArrow ||
+            key != ConsoleKey.RightArrow);
             return Enums.Direction.error;
-        }
-
-        public string NumberToStr(int number)
-        {
-            if(number == 0)
-            {
-                return DuplicateSpace(4);
-            }
-            if(NumberLen(number) == 1)
-            {
-                return $"{number.ToString()}{DuplicateSpace(3)}";
-            }
-            if (NumberLen(number) == 2)
-            {
-                return $"{number.ToString()}{DuplicateSpace(2)}";
-            }
-            if (NumberLen(number) == 3)
-            {
-                return $"{number.ToString()}{DuplicateSpace(1)}";
-            }
-            return number.ToString();
-        }
-
-        private int NumberLen(int number)
-        {
-            return (number > 0) ? 1 + NumberLen(number / 10) : 0;
-        }
-
-        private string DuplicateSpace(int number)
-        {
-            string longSpace = "";
-            for(int i = 0; i < number; i++)
-            {
-                longSpace += constants.Space;
-            }
-            return longSpace;
         }
     }
 }

@@ -10,13 +10,28 @@ namespace _2048Game.Logic
     public class Board
     {
         public int[,] Data { get; protected set; }
-        public int NumberOfFullSpots {  get; set; }
+        public int NumberOfFullSpots { get; set; }
+        public bool Contains2048 { get; protected set; }
 
         public Board()
         {
-            Data = new int[constants.BoardSize,constants.BoardSize];
+            Data = new int[constants.BoardSize, constants.BoardSize];
             NumberOfFullSpots = 0;
         }
+
+        public Board(Board b)
+        {
+            Data = new int[constants.BoardSize, constants.BoardSize];
+            NumberOfFullSpots = 0;
+            for (int i = 0; i < constants.BoardSize; i++)
+            {
+                for (int j = 0; j < constants.BoardSize; j++)
+                {
+                    this.Data[i, j] = b.Data[i, j];
+                }
+            }
+        }
+    
 
         public void AddCells(int numOfCellsToAdd)
         {
@@ -37,9 +52,26 @@ namespace _2048Game.Logic
             AddCells(2);
         }
 
+        public bool BoardChanged(Board boardCopy, Board originalBoard)
+        {
+            for (int i = 0; i < constants.BoardSize; i++)
+            {
+                for (int j = 0; j < constants.BoardSize; j++)
+                {
+                    if (boardCopy.Data[i, j] != originalBoard.Data[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public int Move(Enums.Direction direction)
         {
             int addPoints = 0;
+            Board boardCopy = new Board(this);
+            bool change = false;
             switch (direction)
             {
                 case Enums.Direction.Up:
@@ -55,7 +87,11 @@ namespace _2048Game.Logic
                     addPoints = MoveByRow(-1);
                     break;
             }
-            AddCells(1);
+            
+            if (BoardChanged(boardCopy, this))
+            {
+                AddCells(1);
+            }
             return addPoints;
         }
 
@@ -67,19 +103,20 @@ namespace _2048Game.Logic
                 ArrengeRow(direction, i);
                 if (Data[i, 1] == Data[i, 2])
                 {
-                    addPoints = ConnectIdenticall(new int[] { i, 1 }, new int[] { i, 2 }, direction);
+                    addPoints += ConnectIdenticall(new int[] { i, 1 }, new int[] { i, 2 }, direction);
                 }
                 else
                 {
                     if (Data[i, 0] == Data[i, 1])
                     {
-                        addPoints = ConnectIdenticall(new int[] { i, 0 }, new int[] { i, 1 }, direction);
+                        addPoints += ConnectIdenticall(new int[] { i, 0 }, new int[] { i, 1 }, direction);
                     }
                     if (Data[i, 2] == Data[i, 3])
                     {
-                        addPoints =ConnectIdenticall(new int[] { i, 2 }, new int[] { i, 3 }, direction);
+                        addPoints += ConnectIdenticall(new int[] { i, 2 }, new int[] { i, 3 }, direction);
                     }
                 }
+                
                 ArrengeRow(direction, i);
             }
             return addPoints;
@@ -112,19 +149,26 @@ namespace _2048Game.Logic
 
         private int ConnectIdenticall(int[] firstLoc, int[] secondLoc, int direction)
         {
-            if (direction == 1)//up
+            if (direction == 1)
             {
                 Data[firstLoc[0], firstLoc[1]] =
                     Data[firstLoc[0], firstLoc[1]] + Data[secondLoc[0], secondLoc[1]];
                 Data[secondLoc[0], secondLoc[1]] = 0;
                 NumberOfFullSpots--;
+                if(Data[firstLoc[0], firstLoc[1]] == 2048)
+                {
+                    Contains2048 = true;
+                }
                 return Data[firstLoc[0], firstLoc[1]];
             }
-            //down
             Data[secondLoc[0], secondLoc[1]] =
                     Data[firstLoc[0], firstLoc[1]] + Data[secondLoc[0], secondLoc[1]];
             Data[firstLoc[0], firstLoc[1]] = 0;
             NumberOfFullSpots--;
+            if (Data[secondLoc[0], secondLoc[1]] == 2048)
+            {
+                Contains2048 = true;
+            }
             return Data[secondLoc[0], secondLoc[1]];
         }
 
@@ -136,17 +180,17 @@ namespace _2048Game.Logic
                 ArrengeQueue(direction, i);
                 if (Data[1, i] == Data[2, i])
                 {
-                    addPoints = ConnectIdenticall(new int[] { 1, i }, new int[] { 2, i }, direction);
+                    addPoints += ConnectIdenticall(new int[] { 1, i }, new int[] { 2, i }, direction);
                 }
                 else
                 {
                     if (Data[0, i] == Data[1, i])
                     {
-                        addPoints = ConnectIdenticall(new int[] { 0, i }, new int[] { 1, i }, direction);
+                        addPoints += ConnectIdenticall(new int[] { 0, i }, new int[] { 1, i }, direction);
                     }
                     if (Data[2, i] == Data[3, i])
                     {
-                        addPoints = ConnectIdenticall(new int[] { 2, i }, new int[] { 3, i }, direction);
+                        addPoints += ConnectIdenticall(new int[] { 2, i }, new int[] { 3, i }, direction);
                     }
                 }
                 ArrengeQueue(direction, i);

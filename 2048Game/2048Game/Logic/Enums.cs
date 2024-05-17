@@ -14,6 +14,7 @@ namespace _2048Game.Logic
             Right,
             Up,
             Down,
+            Enter,
             error
         }
 

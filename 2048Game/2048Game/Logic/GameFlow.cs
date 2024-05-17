@@ -10,13 +10,29 @@ namespace _2048Game.Logic
     {
         public GameFlow()
         {
+            Print(constants.Menu);
+            while(GetConsoleKey() != Enums.Direction.Enter)
+            {
+                continue;
+            }
             Game game = new Game();
             game.Board.StartGame();
             while (game.Status == Enums.GameStatus.Idle)
             {
+                Console.Clear();
+                Print($"{constants.PointsMessage} {game.Points}");
                 ShowBoard(game.Board);
-                game.Move(GetDirection());
+                game.Move(GetConsoleKey());
+                if(game.Status == Enums.GameStatus.Lose)
+                {
+                    Print(constants.LoseMessage);
+                }
+                if (game.Status == Enums.GameStatus.Win)
+                {
+                    Print(constants.WinMessage);
+                }
             }
+            int m = int.Parse(Console.ReadLine());
         }
     }
 }
